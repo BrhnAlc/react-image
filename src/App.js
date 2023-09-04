@@ -5,15 +5,18 @@ import Images from './Images';
 import "./styles.css";
 
 function App() {
+  const [phone, setPhone] = useState(Images[0]);
   return (
     <div className="App">
       <div className='container'>
-     <img src="" alt="selected" className='selected'/>
+     <img src={phone} alt="selected" className='selected'/>
       </div>
       <div className='imgContainer'>
-        <img src="" alt="cağ kebap" />
+       {Images.map((img,index)=>(
+        <img key={index} src={img} alt="phone" onClick={()=>setPhone(img)}/>
+       ))}
       </div>
-      <Images/>
+     
     </div>
   );
 }
